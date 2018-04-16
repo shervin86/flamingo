@@ -105,7 +105,7 @@ def simpleSurfBend(path=None,profile=None):
   elif path.ShapeType==profile.ShapeType=='Edge':
     curva.Shape=Part.makeSweepSurface(path,profile)
 
-def makePipe(propList=[], pos=None, Z=None):
+def makePipe(propList=[], pos=None, Z=None, name="Tubo"):
   '''add a Pipe object
   makePipe(propList,pos,Z);
   propList is one optional list with 4 elements:
@@ -122,7 +122,8 @@ def makePipe(propList=[], pos=None, Z=None):
     pos=FreeCAD.Vector(0,0,0)
   if Z==None:
     Z=FreeCAD.Vector(0,0,1)
-  a=FreeCAD.ActiveDocument.addObject("Part::FeaturePython","Tubo")
+  pos
+  a=FreeCAD.ActiveDocument.addObject("Part::FeaturePython",name)
   if len(propList)==4:
     pipeFeatures.Pipe(a,*propList)
   else:
